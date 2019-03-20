@@ -2,6 +2,7 @@ package org.xoyo.oop;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import org.apache.commons.lang3.StringUtils;
 
 public class WeChatMessage {
 
@@ -16,14 +17,14 @@ public class WeChatMessage {
     }
 
     public boolean isValid() {
-        return getFrom().length() * getMesg().length() > 0;
+        return StringUtils.isNotBlank(from) && StringUtils.isNotEmpty(mesg);
     }
 
     public String getFrom() {
-        return from != null ? from : "";
+        return from;
     }
 
     public String getMesg() {
-        return mesg != null ? mesg : "";
+        return mesg;
     }
 }
