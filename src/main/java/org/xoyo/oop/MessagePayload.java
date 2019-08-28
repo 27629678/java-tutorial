@@ -3,9 +3,7 @@ package org.xoyo.oop;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
-import java.io.Serializable;
-
-public class MessagePayload implements Serializable {
+public class MessagePayload implements MessageDebugDescriptionInterface {
 
     private String mid;
 
@@ -14,6 +12,10 @@ public class MessagePayload implements Serializable {
     private String source;
 
     private String content;
+
+    public MessagePayload() {
+
+    }
 
     public MessagePayload(String json) {
         JSONObject jo = JSON.parseObject(json);
@@ -38,5 +40,10 @@ public class MessagePayload implements Serializable {
 
     public String getContent() {
         return content;
+    }
+
+    @Override
+    public void debugDescription() {
+        System.out.println(this.getClass().toString());
     }
 }

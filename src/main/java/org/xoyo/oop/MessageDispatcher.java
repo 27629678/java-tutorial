@@ -10,14 +10,19 @@ public class MessageDispatcher extends DescriptionObject implements TestingRunne
         description();
 
         String json = "{\"mid\":\"1553081989\",\"type\":1,\"source\":\"apple\",\"content\":\"{\\\"from\\\":\\\"hzyuxiaohua\\\",\\\"mesg\\\":\\\"hello, world.\\\"}\"}";
-        MessagePayload payload = new MessagePayload(json);
+//        MessagePayload payload = new MessagePayload(json);
 
-        if (payload.getType() == 1) {
-            WeChatMessage mesg = new WeChatMessage(payload.getContent());
+//        if (payload.getType() == 1) {
+//            WeChatMessage mesg = new WeChatMessage(payload.getContent());
+//            debugDescription(mesg);
+//
+//            if (mesg.isValid()) {
+//                System.out.println("WeChat Message: " + mesg.getMesg());
+//            }
+//        }
+    }
 
-            if (mesg.isValid()) {
-                System.out.println("WeChat Message: " + mesg.getMesg());
-            }
-        }
+    private void debugDescription(MessagePayload payload) {
+        payload.debugDescription();
     }
 }

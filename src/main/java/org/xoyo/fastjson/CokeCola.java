@@ -7,6 +7,9 @@ import org.xoyo.base.DescriptionObject;
 
 @Committer
 public class CokeCola extends DescriptionObject {
+
+    private static final long serialVersionUID = 1L;
+
     private String name;
     private Integer volum;
 

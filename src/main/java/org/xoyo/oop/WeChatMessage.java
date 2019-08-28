@@ -1,19 +1,19 @@
 package org.xoyo.oop;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
 
-public class WeChatMessage {
+public class WeChatMessage extends MessagePayload {
 
     private String from;
 
     private String mesg;
 
+    public WeChatMessage() {
+        super();
+    }
+
     public WeChatMessage(String json) {
-        JSONObject jo = JSON.parseObject(json);
-        this.from = jo.getString("from");
-        this.mesg = jo.getString("mesg");
+        super(json);
     }
 
     public boolean isValid() {
@@ -21,10 +21,26 @@ public class WeChatMessage {
     }
 
     public String getFrom() {
-        return from;
+        return from != null ? from : "";
+    }
+
+    public void setFrom(String from) {
+        this.from = from;
     }
 
     public String getMesg() {
-        return mesg;
+        return mesg != null ? mesg : "";
+    }
+
+    public void setMesg(String mesg) {
+        this.mesg = mesg;
+    }
+
+    @Override
+    public String toString() {
+        return "WeChatMessage{" +
+                "from='" + from + '\'' +
+                ", mesg='" + mesg + '\'' +
+                '}';
     }
 }
